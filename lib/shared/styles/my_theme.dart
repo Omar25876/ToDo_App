@@ -25,7 +25,7 @@ class MyTheme {
     ),
     iconTheme: const IconThemeData(color: whiteColor),
     textTheme: const TextTheme(
-      headline1: TextStyle(fontWeight: FontWeight.bold,fontSize: 32,color: whiteColor),
+      headline1: TextStyle(fontWeight: FontWeight.bold,fontSize: 28,color: whiteColor),
       subtitle1: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: primaryColorLight),
       subtitle2: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: whiteColor),
       bodyText1: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: greenColor),
