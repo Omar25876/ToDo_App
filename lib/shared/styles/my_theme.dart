@@ -5,7 +5,6 @@ import 'colors.dart';
 class MyTheme {
 
   ThemeData light = ThemeData(
-    scaffoldBackgroundColor: greenBackground,
       colorScheme: const ColorScheme(
           brightness: Brightness.light,
           primary: primaryColorLight,
@@ -22,10 +21,11 @@ class MyTheme {
     appBarTheme: const AppBarTheme(
       backgroundColor: primaryColorLight,
       elevation: 0.0,
+      titleTextStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
     ),
     iconTheme: const IconThemeData(color: whiteColor),
     textTheme: const TextTheme(
-      headline1: TextStyle(fontWeight: FontWeight.bold,fontSize: 28,color: whiteColor),
+      headline1: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: whiteColor),
       subtitle1: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: primaryColorLight),
       subtitle2: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: whiteColor),
       bodyText1: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: greenColor),
@@ -36,6 +36,10 @@ class MyTheme {
           unselectedItemColor: Colors.grey
       ),
 
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      elevation: 0.0,
+      backgroundColor: primaryColorLight,
+    ),
   );
 
   ThemeData dark = ThemeData(
