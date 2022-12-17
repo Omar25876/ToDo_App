@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_app/layout/setting_tab.dart';
+import 'package:todo_app/modules/setting_tab.dart';
 import 'package:todo_app/shared/styles/my_theme.dart';
 
-import 'add_bottomsheet.dart';
-import 'list_tab.dart';
+import '../modules/add_bottomsheet.dart';
+import '../modules/list_tab.dart';
 
 class Home_layout extends StatefulWidget {
   Home_layout();
