@@ -1,73 +1,97 @@
 import 'package:flutter/material.dart';
 
-import 'colors.dart';
 
 class MyTheme {
+  static const  Color greenColor = const Color.fromRGBO(97, 231, 87, 1.0);
+  static const Color greenBackground = const Color.fromRGBO(223, 236, 219, 1.0);
 
-  ThemeData light = ThemeData(
-    scaffoldBackgroundColor: greenBackground,
-      colorScheme: const ColorScheme(
-          brightness: Brightness.light,
-          primary: primaryColorLight,
-          onPrimary: whiteColor,
-          secondary: greenBackground,
-          onSecondary: whiteColor,
-          error: Colors.red,
-          onError: whiteColor,
-          background: greenBackground,
-          onBackground: primaryColorLight,
-          surface: Colors.deepPurple,
-          onSurface: whiteColor,
-      ),
+  static const Color primaryColor =  Color.fromRGBO(93, 156, 236, 1.0);
+  static const Color primaryColorDark = const Color.fromRGBO(6, 14, 30, 1.0);
+  static const Color secondaryColor = const Color.fromRGBO(54, 54, 54, 1.0);
+  static const Color secondaryColorDark = const Color.fromRGBO(255, 255, 255, 1.0);
+
+
+  static ThemeData LightTheme = ThemeData(
+    primaryColor: primaryColor,
+    accentColor: secondaryColorDark,
+    scaffoldBackgroundColor: Colors.transparent,
     appBarTheme: const AppBarTheme(
-      backgroundColor: primaryColorLight,
+      backgroundColor:Color.fromRGBO(93, 156, 236, 1.0),
       elevation: 0.0,
+      titleTextStyle: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
     ),
-    iconTheme: const IconThemeData(color: whiteColor),
-    textTheme: const TextTheme(
-      headline1: TextStyle(fontWeight: FontWeight.bold,fontSize: 32,color: whiteColor),
-      subtitle1: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: primaryColorLight),
-      subtitle2: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: whiteColor),
-      bodyText1: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: greenColor),
+    iconTheme: IconThemeData(color: secondaryColorDark),
+    textTheme: TextTheme(
+      headline1: TextStyle(
+          fontWeight: FontWeight.bold, fontSize: 25, color: primaryColor),
+      subtitle1: TextStyle(
+          fontWeight: FontWeight.w600, fontSize: 20, color: Colors.black),
+      subtitle2: TextStyle(
+          fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
+      bodyText1: TextStyle(
+          fontWeight: FontWeight.bold, fontSize: 18, color: Colors.grey),
     ),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Colors.white,
-          selectedItemColor: primaryColorLight,
-          unselectedItemColor: Colors.grey
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      elevation: 0.0,
+      backgroundColor: primaryColor,
+    ),
+    bottomSheetTheme: BottomSheetThemeData(
+      elevation: 0,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
+        ),
       ),
+    ),
 
-  );
-
-  ThemeData dark = ThemeData(
-    scaffoldBackgroundColor: greenBackground,
-    colorScheme: const ColorScheme(
-      brightness: Brightness.dark,
-      primary: primaryColorLight,
-      onPrimary: whiteColor,
-      secondary: greenBackground,
-      onSecondary: whiteColor,
-      error: Colors.red,
-      onError: whiteColor,
-      background: greenBackground,
-      onBackground: primaryColorLight,
-      surface: Colors.deepPurple,
-      onSurface: whiteColor,
-    ),
-    appBarTheme: const AppBarTheme(
-      backgroundColor: primaryColorLight,
-      elevation: 0.0,
-    ),
-    iconTheme: const IconThemeData(color: whiteColor),
-    textTheme: const TextTheme(
-      headline1: TextStyle(fontWeight: FontWeight.bold,fontSize: 32,color: whiteColor),
-      subtitle1: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: primaryColorLight),
-      subtitle2: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: whiteColor),
-      bodyText1: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: greenColor),
-    ),
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: Colors.white,
-        selectedItemColor: primaryColorLight,
+        selectedItemColor: primaryColor,
         unselectedItemColor: Colors.grey
     ),
   );
+
+  static ThemeData DarkTheme = ThemeData(
+    primaryColor: primaryColor,
+    accentColor: secondaryColorDark,
+    scaffoldBackgroundColor: Colors.transparent,
+    appBarTheme: const AppBarTheme(
+      backgroundColor:Color.fromRGBO(93, 156, 236, 1.0),
+      elevation: 0.0,
+      titleTextStyle: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+    ),
+    iconTheme: IconThemeData(color: secondaryColorDark),
+    textTheme: TextTheme(
+      headline1: TextStyle(
+          fontWeight: FontWeight.bold, fontSize: 25, color: primaryColor),
+      subtitle1: TextStyle(
+          fontWeight: FontWeight.w600, fontSize: 20, color: Colors.black),
+      subtitle2: TextStyle(
+          fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
+    ),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      elevation: 0.0,
+      backgroundColor: primaryColor,
+    ),
+    bottomSheetTheme: BottomSheetThemeData(
+      elevation: 0,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
+        ),
+      ),
+    ),
+
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: Colors.white,
+        selectedItemColor: primaryColor,
+        unselectedItemColor: Colors.grey
+    ),
+  );
+
+
+
+
 }

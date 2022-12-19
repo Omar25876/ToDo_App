@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_app/layout/setting_tab.dart';
+import 'package:todo_app/modules/setting_tab.dart';
+import 'package:todo_app/shared/styles/my_theme.dart';
 
-import 'list_tab.dart';
+import '../modules/add_bottomsheet.dart';
+import '../modules/list_tab.dart';
 
 class Home_layout extends StatefulWidget {
   Home_layout();
@@ -24,47 +26,63 @@ class _Home_layoutState extends State<Home_layout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(223, 236, 219, 1.0),
       appBar: AppBar(
+        elevation: 0.0,
         title: Text(
           'To Do List',
-          style: Theme.of(context).textTheme.subtitle1,
         ),
+        toolbarHeight: MediaQuery.of(context).size.height*.20,
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentindex,
-        onTap: (index){
-          currentindex = index;
-          setState(() {
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        elevation: 0.0,
+        notchMargin: 12,
+        clipBehavior: Clip.antiAlias,
+        child: BottomNavigationBar(
+          currentIndex: currentindex,
+          onTap: (index){
+            currentindex = index;
+            setState(() {
 
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage('assets/images/icon_list.png'),
-              ),
-              label: 'list'),
-          BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage('assets/images/icon_settings.png'),
-              ),
-              label: 'settings'),
-        ],
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage('assets/images/icon_list.png'),
+                ),
+                label: 'list'),
+            BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage('assets/images/icon_settings.png'),
+                ),
+                label: 'settings'),
+          ],
+        ),
       ),
 
       floatingActionButton: FloatingActionButton(
+
         onPressed: () {
 
-        },
+          showbottomesheet();
 
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-          side: BorderSide(color: Theme.of(context).colorScheme.onPrimary,width: 3,),
+        },
+        child: Icon(Icons.add),
+        shape: StadiumBorder(
+          side: BorderSide(color: Colors.white,width: 3),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
       body: tabs[currentindex],
     );
+  }
+
+  void showbottomesheet() {
+    showModalBottomSheet(context: context, builder: (_){
+      return AddBottomSheet();
+    });
   }
 }
