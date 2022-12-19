@@ -14,20 +14,24 @@ class TodoProvider extends ChangeNotifier{
   fetchtodosFromfirestore() async {
     var todoscollection = FirebaseFirestore.instance.collection('todos');
     var query = await todoscollection.get();
-
-    query.docs.map((doc) {
+    print("Fetch");
+    todos = query.docs.map((doc) {
       var map = doc.data();
       return TodoDM(
           id: doc.id,
           title: map["title"],
           description: map["description"],
-          time: DateTime.fromMicrosecondsSinceEpoch(map["time"]),
+          time: DateTime.fromMillisecondsSinceEpoch(map["time"]),
           isDone: map["isDone"]);
     }).toList();
 
-    todos.where((todo) {
-      return todo.time.year == selectedDay.year &&
-          todo.time.month == selectedDay.month && todo.time.hour == selectedDay.hour;
+    todos = todos.where((todo) {
+
+      if(todo.time.year == selectedDay.year && todo.time.month == selectedDay.month && todo.time.day == selectedDay.day){
+        print(todo.time);
+        return true;
+      }
+      return false;
     }).toList();
     notifyListeners();
   }

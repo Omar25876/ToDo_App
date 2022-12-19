@@ -116,14 +116,12 @@ class _AddBottomSheetState extends State<AddBottomSheet> {
     todoscollection.doc().set({
       'title':title,
       'description':description,
-      'time' : selectedDate.microsecondsSinceEpoch,
+      'time' : selectedDate.millisecondsSinceEpoch,
       'isDone':false
-    }).then((value) {
-
     }).timeout(Duration(milliseconds: 500),onTimeout: (){
-      print("success");
       provider.fetchtodosFromfirestore();
       Navigator.pop(context);
+
     });
   }
 }

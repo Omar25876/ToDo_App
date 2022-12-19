@@ -19,7 +19,6 @@ class _ListTapState extends State<ListTap> {
   @override
   Widget build(BuildContext context) {
     provider = Provider.of(context);
-    if (provider.todos.isEmpty) provider.fetchtodosFromfirestore();
     return Column(
       children: [
         CalendarTimeline(

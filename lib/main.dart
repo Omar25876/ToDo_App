@@ -16,7 +16,7 @@ void main() async{
   FirebaseFirestore.instance.settings =
       Settings(cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED);
   await FirebaseFirestore.instance.disableNetwork();
-  runApp(ChangeNotifierProvider(create: (BuildContext context)=> TodoProvider(),
+  runApp(ChangeNotifierProvider(create: (BuildContext context)=> TodoProvider()..fetchtodosFromfirestore(),
   child: MyApp()));
 }
 
