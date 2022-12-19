@@ -53,13 +53,13 @@ class MyTheme {
   );
 
   static ThemeData DarkTheme = ThemeData(
-    primaryColor: primaryColor,
+    primaryColor: primaryColorDark,
     accentColor: secondaryColorDark,
     scaffoldBackgroundColor: Colors.transparent,
     appBarTheme: const AppBarTheme(
       backgroundColor:Color.fromRGBO(93, 156, 236, 1.0),
       elevation: 0.0,
-      titleTextStyle: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+      titleTextStyle: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,color: Colors.black),
     ),
     iconTheme: IconThemeData(color: secondaryColorDark),
     textTheme: TextTheme(
@@ -69,6 +69,8 @@ class MyTheme {
           fontWeight: FontWeight.w600, fontSize: 20, color: Colors.black),
       subtitle2: TextStyle(
           fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
+      bodyText1: TextStyle(
+          fontWeight: FontWeight.bold, fontSize: 18, color: Colors.grey),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       elevation: 0.0,
@@ -76,7 +78,7 @@ class MyTheme {
     ),
     bottomSheetTheme: BottomSheetThemeData(
       elevation: 0,
-      backgroundColor: Colors.white,
+      backgroundColor: primaryColorDark,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(20),
@@ -85,7 +87,7 @@ class MyTheme {
     ),
 
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: Colors.white,
+        backgroundColor: primaryColorDark,
         selectedItemColor: primaryColor,
         unselectedItemColor: Colors.grey
     ),

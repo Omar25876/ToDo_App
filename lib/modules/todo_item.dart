@@ -1,16 +1,20 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_app/shared/styles/my_theme.dart';
 import '../models/todo_dm.dart';
+import '../providers/todoprovider.dart';
 
 class TodoItem extends StatelessWidget {
   TodoDM todo;
 
   TodoItem(this.todo);
 
-
+late TodoProvider provider ;
   @override
   Widget build(BuildContext context) {
+    provider =  Provider.of(context);
     return Slidable(
       startActionPane: ActionPane(
           motion: ScrollMotion(),
@@ -18,8 +22,9 @@ class TodoItem extends StatelessWidget {
 
             SlidableAction(
               borderRadius: BorderRadius.circular(15),
-              onPressed: (r){
+              onPressed: (context){
 
+                deletetodo();
               },
               backgroundColor: Color(0xFFFE4A49),
               foregroundColor: Colors.white,
@@ -85,5 +90,12 @@ class TodoItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void deletetodo() {
+
+    FirebaseFirestore.instance.collection('todos').doc(todo.id).delete().timeout(Duration(milliseconds: 1),onTimeout: () {
+      provider.fetchtodosFromfirestore();
+    },);
   }
 }
