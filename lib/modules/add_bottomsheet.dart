@@ -104,24 +104,24 @@ class _AddBottomSheetState extends State<AddBottomSheet> {
     selectedDate = await showDatePicker(
       context: context,
       initialDate: selectedDate,
-      firstDate: selectedDate,
+      firstDate: DateTime.now(),
       lastDate: selectedDate.add(Duration(days: 365)),
     )?? DateTime.now();
   }
 
   void AddCliked() {
     if(!mykey.currentState!.validate())return;
-
    var todoscollection =  FirebaseFirestore.instance.collection('todos');
-    var emptydoc = todoscollection.doc();
 
-    emptydoc.set({
-      'id':emptydoc.id,
+    todoscollection.doc().set({
       'title':title,
       'description':description,
       'time' : selectedDate.microsecondsSinceEpoch,
       'isDone':false
+    }).then((value) {
+
     }).timeout(Duration(milliseconds: 500),onTimeout: (){
+      print("success");
       provider.fetchtodosFromfirestore();
       Navigator.pop(context);
     });

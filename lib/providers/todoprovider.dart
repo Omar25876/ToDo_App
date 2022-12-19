@@ -18,7 +18,7 @@ class TodoProvider extends ChangeNotifier{
     query.docs.map((doc) {
       var map = doc.data();
       return TodoDM(
-          id: map["id"],
+          id: doc.id,
           title: map["title"],
           description: map["description"],
           time: DateTime.fromMicrosecondsSinceEpoch(map["time"]),
