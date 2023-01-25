@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/providers/todoprovider.dart';
+
+import '../providers/providersetting.dart';
 
 
 class AddBottomSheet extends StatefulWidget {
@@ -16,11 +19,14 @@ DateTime selectedDate = DateTime.now();
 String? title;
 String? description;
 late TodoProvider provider;
+late SettingProvider providermode;
 
 class _AddBottomSheetState extends State<AddBottomSheet> {
   @override
   Widget build(BuildContext context) {
     provider = Provider.of(context);
+    providermode = Provider.of(context);
+
     return Form(
       key: mykey,
       child: Container(
@@ -30,17 +36,17 @@ class _AddBottomSheetState extends State<AddBottomSheet> {
           children: [
             Center(
                 child: Text(
-              'Add Task',
+              'addtask'.tr(),
               style: Theme.of(context).textTheme.subtitle1,
             )),
             TextFormField(
               decoration: InputDecoration(
-                labelText: 'Title',
+                labelText: 'title'.tr(),
                 labelStyle: Theme.of(context).textTheme.bodyText1,
               ),
               validator: (text){
                 if(text == null || text.trim().isEmpty){
-                  return 'Please Enter Title';
+                  return 'asktitle'.tr();
                 }
               },
               onChanged: (text){
@@ -52,12 +58,12 @@ class _AddBottomSheetState extends State<AddBottomSheet> {
             ),
             TextFormField(
               decoration: InputDecoration(
-                labelText: 'Description',
+                labelText: 'description'.tr(),
                 labelStyle: Theme.of(context).textTheme.bodyText1,
               ),
               validator: (text){
                 if(text == null || text.trim().isEmpty){
-                  return 'Please Enter Description';
+                  return 'askdesc'.tr();
                 }
               },
               onChanged: (text){
@@ -68,7 +74,7 @@ class _AddBottomSheetState extends State<AddBottomSheet> {
               height: 32,
             ),
             Text(
-              'Select Date : ',
+              'selectdate'.tr(),
               style: Theme.of(context).textTheme.subtitle1,
               textAlign: TextAlign.start,
             ),
@@ -90,8 +96,8 @@ class _AddBottomSheetState extends State<AddBottomSheet> {
                 AddCliked();
               },
               child: Text(
-                'ADD',
-                style: Theme.of(context).textTheme.subtitle2,
+                'add'.tr(),
+                style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
               ),
             ),
           ],
