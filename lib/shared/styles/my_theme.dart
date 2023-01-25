@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class MyTheme {
   static const  Color greenColor = const Color.fromRGBO(97, 231, 87, 1.0);
   static const Color greenBackground = const Color.fromRGBO(223, 236, 219, 1.0);
-
   static const Color primaryColor =  Color.fromRGBO(93, 156, 236, 1.0);
   static const Color primaryColorDark = const Color.fromRGBO(6, 14, 30, 1.0);
   static const Color secondaryColor = const Color.fromRGBO(54, 54, 54, 1.0);
@@ -27,9 +26,11 @@ class MyTheme {
       subtitle1: TextStyle(
           fontWeight: FontWeight.w600, fontSize: 20, color: Colors.black),
       subtitle2: TextStyle(
-          fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
+          fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),
       bodyText1: TextStyle(
           fontWeight: FontWeight.bold, fontSize: 18, color: Colors.grey),
+      bodyText2: TextStyle(
+          fontWeight: FontWeight.bold, fontSize: 18, color: primaryColor),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       elevation: 0.0,
@@ -66,11 +67,13 @@ class MyTheme {
       headline1: TextStyle(
           fontWeight: FontWeight.bold, fontSize: 25, color: primaryColor),
       subtitle1: TextStyle(
-          fontWeight: FontWeight.w600, fontSize: 20, color: Colors.black),
+          fontWeight: FontWeight.w600, fontSize: 20, color: Colors.white),
       subtitle2: TextStyle(
-          fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
+          fontWeight: FontWeight.bold, fontSize: 18, color: primaryColor),
       bodyText1: TextStyle(
           fontWeight: FontWeight.bold, fontSize: 18, color: Colors.grey),
+      bodyText2: TextStyle(
+          fontWeight: FontWeight.bold, fontSize: 18, color: primaryColor),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       elevation: 0.0,

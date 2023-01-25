@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/modules/setting_tab.dart';
 import 'package:todo_app/providers/providersetting.dart';
-import 'package:todo_app/shared/styles/my_theme.dart';
+
 
 import '../modules/add_bottomsheet.dart';
 import '../modules/list_tab.dart';
@@ -18,7 +18,7 @@ class Home_layout extends StatefulWidget {
 }
 
 class _Home_layoutState extends State<Home_layout> {
-  int currentindex = 1;
+  int currentindex = 0;
 
   List<Widget> tabs = [
     ListTap(),

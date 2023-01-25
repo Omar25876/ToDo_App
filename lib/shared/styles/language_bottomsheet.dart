@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/providersetting.dart';
+import '../../providers/providersetting.dart';
 
 class languagebottomsheet extends StatelessWidget {
   languagebottomsheet({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class languagebottomsheet extends StatelessWidget {
         children: [
           InkWell(
             onTap: (){
-              providermode.changecurrentlocal("en");
+
             },
             child: Padding(
               padding: const EdgeInsets.fromLTRB(10, 30, 10, 10),
@@ -27,7 +27,7 @@ class languagebottomsheet extends StatelessWidget {
 
           InkWell(
             onTap: (){
-              providermode.changecurrentlocal("ar");
+
             },
             child: Padding(
               padding: const EdgeInsets.fromLTRB(10, 30, 10, 10),

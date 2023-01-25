@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_app/modules/theme_bottomsheet.dart';
+import 'package:todo_app/shared/styles/theme_bottomsheet.dart';
 
-import 'language_bottomsheet.dart';
+import '../shared/styles/language_bottomsheet.dart';
 
 class SettingTap extends StatefulWidget{
   const SettingTap({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _SettingTapState extends State<SettingTap> {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(18, 25, 18, 18),
-            child: Text("Language",style: Theme.of(context)!.textTheme.headline1,),
+            child: Text("Language",style: Theme.of(context)!.textTheme.subtitle2,),
           ),
           InkWell(
             onTap: (){
@@ -34,7 +34,7 @@ class _SettingTapState extends State<SettingTap> {
               color: Colors.white,
               child: Row(
                 children: [
-                  Text('العربية',style: Theme.of(context)!.textTheme.subtitle1),
+                  Text('العربية',style: Theme.of(context)!.textTheme.bodyText2),
                   Spacer(),
                   Icon(Icons.arrow_downward,size: 35,),
                 ],
@@ -44,7 +44,7 @@ class _SettingTapState extends State<SettingTap> {
 
           Padding(
             padding: const EdgeInsets.all(18),
-            child: Text("mode",style: Theme.of(context)!.textTheme.headline1),
+            child: Text("mode",style: Theme.of(context)!.textTheme.subtitle2),
           ),
           InkWell(
             onTap: (){
@@ -58,7 +58,7 @@ class _SettingTapState extends State<SettingTap> {
               color: Colors.white,
               child: Row(
                 children: [
-                  Text("Light",style: Theme.of(context)!.textTheme.subtitle1),
+                  Text("Light",style: Theme.of(context)!.textTheme.bodyText2),
                   Spacer(),
                   Icon(Icons.arrow_downward,size: 35,),
                 ],

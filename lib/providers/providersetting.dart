@@ -3,21 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 
 class SettingProvider extends ChangeNotifier {
-  String currentlocal = "en";
   ThemeMode cuurrenttheme = ThemeMode.light;
   static SharedPreferences? prefs;
-
-
-  changecurrentlocal(String newlocal) {
-     currentlocal = newlocal;
-     prefs?.setString('lang', currentlocal);
-    notifyListeners();
-  }
-  getLocal(){
-    String lang = prefs?.getString('lang')??'ar';
-    currentlocal = lang;
-
-  }
 
   changecurrenttheme(ThemeMode newtheme) {
 
