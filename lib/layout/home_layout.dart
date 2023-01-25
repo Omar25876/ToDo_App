@@ -1,7 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_app/modules/setting_tab.dart';
-import 'package:todo_app/shared/styles/my_theme.dart';
+import 'package:todo_app/providers/providersetting.dart';
+
 
 import '../modules/add_bottomsheet.dart';
 import '../modules/list_tab.dart';
@@ -22,24 +25,21 @@ class _Home_layoutState extends State<Home_layout> {
     ListTap(),
     SettingTap(),
   ];
-
+late SettingProvider providermode;
   @override
   Widget build(BuildContext context) {
+    providermode = Provider.of(context);
     return Scaffold(
-      backgroundColor: Color.fromRGBO(223, 236, 219, 1.0),
-      appBar: AppBar(
-        elevation: 0.0,
-        title: Text(
-          'To Do List',
-        ),
-        toolbarHeight: MediaQuery.of(context).size.height*.20,
-      ),
+      backgroundColor: providermode.cuurrenttheme == ThemeMode.light ?
+      Color.fromRGBO(223, 236, 219, 1.0): Color.fromRGBO(6, 14, 30, 1.0),
+
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
-        elevation: 0.0,
+        elevation: 3.0,
         notchMargin: 12,
         clipBehavior: Clip.antiAlias,
         child: BottomNavigationBar(
+          elevation: 5,
           currentIndex: currentindex,
           onTap: (index){
             currentindex = index;
@@ -52,12 +52,12 @@ class _Home_layoutState extends State<Home_layout> {
                 icon: ImageIcon(
                   AssetImage('assets/images/icon_list.png'),
                 ),
-                label: 'list'),
+                label: 'list'.tr()),
             BottomNavigationBarItem(
                 icon: ImageIcon(
                   AssetImage('assets/images/icon_settings.png'),
                 ),
-                label: 'settings'),
+                label: 'settings'.tr()),
           ],
         ),
       ),
@@ -69,9 +69,10 @@ class _Home_layoutState extends State<Home_layout> {
           showbottomesheet();
 
         },
-        child: Icon(Icons.add),
+        child: Icon(Icons.add,color: Colors.white,),
+        elevation: 8,
         shape: StadiumBorder(
-          side: BorderSide(color: Colors.white,width: 3),
+          side: BorderSide(color: providermode.cuurrenttheme == ThemeMode.light? Colors.white:Colors.black,width: 3),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

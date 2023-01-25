@@ -43,5 +43,32 @@ class TodoProvider extends ChangeNotifier{
   }
 
 
+  updatetodo(TodoDM todo){
+    FirebaseFirestore.instance.collection('todos')
+        .doc(todo.id).update({
+      'id' : todo.id,
+      'title' : todo.title,
+      'description' : todo.description,
+      'time' : todo.time.millisecondsSinceEpoch,
+      'isDone' : todo.isDone,
+    }
+    ).timeout(Duration(milliseconds: 500),onTimeout: (){
+      fetchtodosFromfirestore();
+    });
+
+  }
+
+  updateisdone(TodoDM todo){
+    FirebaseFirestore.instance.collection('todos')
+        .doc(todo.id).update({
+      'isDone' : true
+    }).timeout(Duration(milliseconds: 500),onTimeout: (){
+      fetchtodosFromfirestore();
+
+    });
+
+  }
+
+
 
 }
