@@ -31,7 +31,10 @@ class MyTheme {
           fontWeight: FontWeight.bold, fontSize: 18, color: Colors.grey),
       bodyText2: TextStyle(
           fontWeight: FontWeight.bold, fontSize: 18, color: primaryColor),
+      headline3: TextStyle(
+          fontWeight: FontWeight.bold, fontSize: 25, color: greenColor),
     ),
+
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       elevation: 0.0,
       backgroundColor: primaryColor,
@@ -74,6 +77,8 @@ class MyTheme {
           fontWeight: FontWeight.bold, fontSize: 18, color: Colors.grey),
       bodyText2: TextStyle(
           fontWeight: FontWeight.bold, fontSize: 18, color: primaryColor),
+      headline3: TextStyle(
+          fontWeight: FontWeight.bold, fontSize: 25, color: greenColor),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       elevation: 0.0,

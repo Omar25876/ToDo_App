@@ -1,13 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_app/providers/providersetting.dart';
 
-import '../../providers/providersetting.dart';
-
-class languagebottomsheet extends StatelessWidget {
-  languagebottomsheet({Key? key}) : super(key: key);
+class themebottomsheet extends StatelessWidget {
+  themebottomsheet({Key? key}) : super(key: key);
 
   late SettingProvider providermode;
-
 
   @override
   Widget build(BuildContext context) {
@@ -17,21 +16,23 @@ class languagebottomsheet extends StatelessWidget {
         children: [
           InkWell(
             onTap: (){
-
+              providermode.changecurrenttheme(ThemeMode.light);
+              Navigator.pop(context);
             },
             child: Padding(
               padding: const EdgeInsets.fromLTRB(10, 30, 10, 10),
-              child: Text('English',style: Theme.of(context)!.textTheme.subtitle1,),
+              child: Text('light'.tr(),style: Theme.of(context)!.textTheme.subtitle1,),
             ),
           ),
 
           InkWell(
             onTap: (){
-
+              providermode.changecurrenttheme(ThemeMode.dark);
+              Navigator.pop(context);
             },
             child: Padding(
               padding: const EdgeInsets.fromLTRB(10, 30, 10, 10),
-              child: Text('العربيه',style: Theme.of(context)!.textTheme.subtitle1,),
+              child: Text('dark'.tr(),style: Theme.of(context)!.textTheme.subtitle1,),
             ),
           ),
         ],
